@@ -1,0 +1,25 @@
+name: CI
+# Eventos que disparan la automatización
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+# Trabajos a ejecutar
+jobs:
+  build:
+    runs-on: ubuntu-latest # Máquina virtual donde corre el proceso
+    steps:
+      - name: Descargar código
+        uses: actions/checkout@v4
+      - name: Ejecutar construcción
+        run: echo "Construyendo proyecto..."
+      - name: Ejecutar pruebas
+        run: echo "Ejecutando pruebas..."
+      - name: Subir artefacto de construcción
+        uses: actions/upload-artifact@v4
+        with:
+          name: resultado-construccion
+          path: README.md # O reemplaza por la carpeta de tu build (ej: dist/, build/, target/*.jar)
