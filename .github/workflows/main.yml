@@ -20,6 +20,7 @@ jobs:
         run: echo "Ejecutando pruebas..."
       - name: Subir artefacto de construcción
         uses: actions/upload-artifact@v4
+        run: comando_que_no_existe
         with:
           name: resultado-construccion
           path: README.md # O reemplaza por la carpeta de tu build (ej: dist/, build/, target/*.jar)
